@@ -53,7 +53,7 @@ open class TableDirector: NSObject, UITableViewDataSource, UITableViewDelegate {
         scrollDelegate: UIScrollViewDelegate? = nil,
         shouldUseAutomaticCellRegistration: Bool = true,
         cellBundle: Bundle? = nil,
-        cellHeightCalculator: RowHeightCalculator?)
+        cellHeightCalculator: RowHeightCalculator? = nil)
     {
         super.init()
         
