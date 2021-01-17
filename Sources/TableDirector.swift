@@ -52,12 +52,13 @@ open class TableDirector: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView: UITableView,
         scrollDelegate: UIScrollViewDelegate? = nil,
         shouldUseAutomaticCellRegistration: Bool = true,
+        cellBundle: Bundle? = nil,
         cellHeightCalculator: RowHeightCalculator?)
     {
         super.init()
         
         if shouldUseAutomaticCellRegistration {
-            self.cellRegisterer = TableCellRegisterer(tableView: tableView)
+            self.cellRegisterer = TableCellRegisterer(tableView: tableView, bundle: cellBundle)
         }
         
         self.rowHeightCalculator = cellHeightCalculator

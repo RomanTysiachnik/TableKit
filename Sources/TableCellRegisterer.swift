@@ -24,9 +24,11 @@ class TableCellRegisterer {
 
     private var registeredIds = Set<String>()
     private weak var tableView: UITableView?
+    private var bundle: Bundle?
     
-    init(tableView: UITableView?) {
+    init(tableView: UITableView?, bundle: Bundle?) {
         self.tableView = tableView
+        self.bundle = bundle
     }
     
     func register(cellType: AnyClass, forCellReuseIdentifier reuseIdentifier: String) {
@@ -42,7 +44,7 @@ class TableCellRegisterer {
             return
         }
         
-        let bundle = Bundle(for: cellType)
+        let bundle = self.bundle ?? Bundle(for: cellType)
         
         // we hope that cell's xib file has name that equals to cell's class name
         // in that case we could register nib
